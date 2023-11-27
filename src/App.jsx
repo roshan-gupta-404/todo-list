@@ -7,17 +7,16 @@ import TodoForm from './components/TodoForm'
 function App() {
   const [todos, setTodos] = useState([])
 
+  // DEFINING FUNCTIONALITY OF TODO
   const addTodo = (todo) => {
     setTodos((prev) => [...prev, { id: Date.now(), ...todo }])
   }
   const updateTodo = (id, todo) => {
     setTodos((prev) => prev.map((eachTodo) => eachTodo.id === id ? todo : eachTodo))
   }
-
   const deleteTodo = (id) => {
     setTodos((prev) => prev.filter((eachTodo) => eachTodo.id !== id))
   }
-
   const toggleComplete = (id) => {
     console.log('toggle from app called');
     setTodos((prev) => {
