@@ -4,11 +4,12 @@ import { useTodo } from '../contexts/TodoContext';
 function TodoForm() {
     const [todo,setTodo] = useState("")
     const {addTodo} = useTodo()
+
     const handleSubmitBtn = (e)=>{
         e.preventDefault()
 
-        if(!todo) return // if todo is not set return.
-        addTodo({todo:todo,completed:true}) // adding todo in list.
+        if(!todo.trim()) return // if todo is not set or it contains only spaces then return. 
+        addTodo({todo:todo.trim(),completed:false}) // upon triming adding todo in list.
         setTodo('') // emptying form input field
     }
 
